@@ -1,18 +1,12 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class User extends CI_Controller {
+class User extends Mange_Login_Controller {
+	function __construct() {
+		parent::__construct();
+		$this->load->model( "User_dal" );
+	}
 	public function index() {
-		$list = array();
-		{
-			$list[0] = ("a=" . rand());
-			$list[1] = ("b=" . rand());
-			$list[2] = ("c=" . rand());
-			$list[3] = ("d=" . rand());
-			$list[4] = ("e=" . rand());
-			$list[5] = ("f=" . rand());
-			$list[6] = ("g=" . rand());
-		}
-		$data["list"] = $list;
+		$data["list"] = $this->User_dal->list_split();
 		$this->load->view ( 'user\list', $data );
 	}
 }

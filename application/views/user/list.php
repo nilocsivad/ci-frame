@@ -80,9 +80,26 @@ p.footer {
 		
 		<div id="body">
 		
-		<?php foreach ( $list as $val ):?>
-			<p><?php echo $val?></p>
-		<?php endforeach;?>
+			<table>
+				<thead>
+					<tr>
+						<th>User ID</th>
+						<th>Login Name</th>
+						<th>Password</th>
+						<th>Status</th>
+					</tr>
+				</thead>
+				<?php foreach ( $list as $item ) : ?>
+				<tr>
+					<td><?php echo $item->uid?></td>
+					<td><?php echo $item->lname?></td>
+					<td><?php echo $item->lpwd?></td>
+					<td><?php echo $item->status?></td>
+				</tr>
+				<?php endforeach;?>
+			</table>
+			
+			<p><?php echo date("Y-m-d H-i-s l")?>
 		
 		</div>
 		
