@@ -46,4 +46,15 @@ class Doublecolorball_dal extends CI_Model {
 		return $q;
 	}
 	
+	function count( $data = null ) {
+		$q = $this->db->from( self::TABLE_NAME );
+		if ( $data != null )
+			$q->where( $data );
+		return $q->count_all_results();
+	}
+	
+	function insert( $data ) {
+		$this->db->insert( self::TABLE_NAME, $data );
+	}
+	
 }
