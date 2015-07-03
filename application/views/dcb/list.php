@@ -100,27 +100,6 @@ a.link-btn:active {
 	padding: 1px 20px;
 }
 </style>
-
-<script type="text/javascript">
-	function jump2( go2 ) {
-		document.getElementById( "input-page" ).value = go2;
-		document.getElementById( "form-search" ).submit();
-	}
-	function sel2( val ) {
-		var select = document.getElementById( "select-status" );
-		for ( var i = 0, l = select.children.length; l > i; ++i ) {
-			var opt = select.children[ i ];
-			if ( opt.value == val_status) {
-				opt.selected = "selected";
-				break;
-			}
-		}
-	}
-	var val_status = "<?php echo $status?>";
-	window.onload = function() {
-		sel2( val_status );
-	};
-</script>
 </head>
 <body>
 
@@ -129,31 +108,10 @@ a.link-btn:active {
 		
 		<div id="body">
 		
-			<form id="form-search" method="get" action=".">
-				<input id="input-page" name="page" type="hidden" value="<?php echo $page?>" />
-				<table>
-					<tr>
-						<td><label for="input-lname">Login Name:</label></td>
-						<td><input class="search-input" id="input-lname" type="text" name="lname" value="<?php echo $lname?>" /></td>
-						<td><label for="select-status">Status:</label></td>
-						<td>
-							<select class="search-select" id="select-status" name="status">
-								<option value="">-- Select --</option>
-								<option value="0">Normal</option>
-								<option value="2">Locked</option>
-							</select>
-						</td>
-						<td><input class="search-btn" onclick="jump2(1)" type="submit" value="Search" /></td>
-					</tr>
-				</table>
-			</form>
-			
-			<div>&nbsp;</div>
-		
 			<table>
 				<thead>
 					<tr>
-						<td colspan="4">
+						<td colspan="11">
 							<a class="link-btn" href="javascript:jump2(1)">First</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
 							<span>Current is <b><?php echo $page?>.</b></span>
@@ -162,26 +120,37 @@ a.link-btn:active {
 						</td>
 					</tr>
 					<tr>
-						<th width="70">No.</th>
-						<th>Login Name</th>
-						<th>Password</th>
-						<th>Status</th>
+						<th width="90">Date</th>
+						<th width="90">No.</th>
+						<th width="40">Red A</th>
+						<th width="40">Red B</th>
+						<th width="40">Red C</th>
+						<th width="40">Red D</th>
+						<th width="40">Red E</th>
+						<th width="40">Red F</th>
+						<th width="40">Blue</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php $idx = ( $page - 1 ) * $size + 1; ?>
 					<?php foreach ( $list as $item ) : ?>
 					<tr>
-						<td align="center"><?php echo $idx++; ?></td>
-						<td><a href="?uid=<?php echo $item->uid?>"><?php echo $item->lname?></a></td>
-						<td><?php echo $item->lpwd?></td>
-						<td><?php echo $item->status?></td>
+						<td><?php echo $item->dcb_dt?></td>
+						<td><?php echo $item->dcb_num?></td>
+						<td><?php echo $item->rb1?></td>
+						<td><?php echo $item->rb2?></td>
+						<td><?php echo $item->rb3?></td>
+						<td><?php echo $item->rb4?></td>
+						<td><?php echo $item->rb5?></td>
+						<td><?php echo $item->rb6?></td>
+						<td><?php echo $item->blueb?></td>
+						<td><?php echo $item->allrb?></td>
+						<td><?php echo $item->allb?></td>
 					</tr>
 					<?php endforeach;?>
 				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="4">
+						<td colspan="11">
 							<a class="link-btn" href="javascript:jump2(1)">First</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
 							<span>Current is <b><?php echo $page?>.</b></span>

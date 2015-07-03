@@ -1,8 +1,8 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class User_dal extends CI_Model {
+class Doublecolorball_dal extends CI_Model {
 	
-	const TABLE_NAME = "tbl_users";
+	const TABLE_NAME = "tbl_double_color_ball";
 	
 	function __construct() {
 		parent::__construct();
@@ -35,19 +35,15 @@ class User_dal extends CI_Model {
 	private function pack_q( $param, &$data ) {
 		$q = $this->db->from( self::TABLE_NAME );
 		{
-			$lname = isset( $param[ "lname" ] ) ? $param[ "lname" ] : "";
-			if ( $lname == null || $lname == "" ) {} else { $q->like( "lname", $lname, 'before/after/both' ); }
-			$data[ "lname" ] = $lname;
+// 			$lname = isset( $param[ "lname" ] ) ? $param[ "lname" ] : "";
+// 			if ( $lname == null || $lname == "" ) {} else { $q->like( "lname", $lname, 'before/after/both' ); }
+// 			$data[ "lname" ] = $lname;
 		
-			$status = isset( $param[ "status" ] ) ? $param[ "status" ] : "";
-			if ( $status == null || $status == "" ) {} else { $q->where( "status", $status ); }
-			$data[ "status" ] = $status;
+// 			$status = isset( $param[ "status" ] ) ? $param[ "status" ] : "";
+// 			if ( $status == null || $status == "" ) {} else { $q->where( "status", $status ); }
+// 			$data[ "status" ] = $status;
 		}
 		return $q;
-	}
-	
-	function new_users($datas) {
-		$this->db->insert_batch( self::TABLE_NAME, $datas );
 	}
 	
 }
