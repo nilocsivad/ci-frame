@@ -11,6 +11,8 @@ class Doublecolorball extends MY_Controller {
 		$page = isset( $_GET[ "page" ] ) ? $_GET[ "page" ] : 1;
 		$size = isset( $_GET[ "size" ] ) ? $_GET[ "size" ] : 30;
 		$data = $this->Doublecolorball_dal->list_split( $_GET, $page, $size );
+		$data[ "class" ] = __CLASS__;
+		$data[ "method" ] = __METHOD__;
 		$this->load->view ( 'dcb\list', $data );
 	}
 	
@@ -18,6 +20,8 @@ class Doublecolorball extends MY_Controller {
 	private static $sum = 0;
 	
 	public function increments() {
+		
+		set_time_limit( 0 );
 		
 		$idx = 1;
 		$data = self::ResolveURL( $idx );
@@ -43,6 +47,9 @@ class Doublecolorball extends MY_Controller {
 				}
 			}
 			
+			if ( count( $data ) < 20 ) // ** 
+				break;
+			
 			if ( $loop ) {
 				$idx++;
 				$data = self::ResolveURL( $idx );
@@ -51,6 +58,8 @@ class Doublecolorball extends MY_Controller {
 				$xpath = new DOMXpath( $doc );
 			}
 		} while ( $loop );
+		
+		self::index();
 	}
 	
 	private function ResolveURL( $i ) {

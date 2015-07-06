@@ -5,7 +5,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>[user/list] - ci-frame</title>
+<title>[site/list] - ci-frame</title>
 
 <style type="text/css">
 ::selection {
@@ -92,31 +92,16 @@ a.link-btn:active {
 	border: 1px solid #ccc;
 	width: 100px;
 }
+.search-txtarea {
+	outline: none;
+	resize:none;
+}
 .search-btn {
 	cursor: pointer;
 	outline: none;
 	background: none;
 	border: 1px solid #6699FF;
 	padding: 1px 20px;
-}
-
-.ball span {
-	background: red;
-	display:block;
-	width:24px;
-	height:24px;
-	line-height:24px;
-	margin:0 auto;
-	cursor:pointer;
-	border-radius:12px;
-	text-align:center;
-	color:white;
-}
-.ball-r span {
-	background: #c00000;
-}
-.ball-b span {
-	background: #0000c0;
 }
 </style>
 
@@ -134,88 +119,52 @@ a.link-btn:active {
 		
 		<div id="body">
 		
-			<?php 
-				$url = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; 
-			?>
-			<div><?php echo $url ?></div>
-			<div><?php echo dirname( $url ); ?></div>
-			<div><?php print_r( pathinfo( $url ) ) ?></div>
-			<div><?php print_r( parse_url( $url ) ) ?></div>
-			
-			<div>&nbsp;</div>
-			
-			<div><?php echo current_url()?></div>
-			<div><?php echo site_url()?></div>
-			<div><?php echo site_url( "/" )?></div>
-			<div><?php echo site_url( "Doublecolorball" ) ?></div>
-			
-			<div>&nbsp;</div>
-		
-			<div><a class="link-btn" href="<?php echo site_url( "doublecolorball/increments" ) ?>">Refresh</a></div>
-		
-			<form id="form-search" method="get" action="<?php echo site_url( "doublecolorball/index" ) ?>">
-				<input id="input-page" name="page" type="text" value="<?php echo $page?>" />
-				<input id="input-page" name="size" type="text" value="<?php echo $size?>" />
-				<input class="search-btn" type="submit" value="Search" />
+			<form id="form-search" method="get" action="<?php echo site_url( "site/index" ) ?>">
+				<input id="input-page" name="page" type="hidden" value="<?php echo $page?>" />
+				<table>
+					<tr>
+						<td><label for="input-title">Title:</label></td>
+						<td><input class="search-input" id="input-title" type="text" name="title" value="<?php echo $title?>" /></td>
+						<td><label for="input-url">URL:</label></td>
+						<td><input class="search-input" id="input-url" type="text" name="url" value="<?php echo $url?>" /></td>
+						<td rowspan="2">
+							<input class="search-btn" onclick="jump2(1)" type="submit" value="Search" />
+							<a class="search-btn" href="<?php echo site_url( "site/new_ws" ) ?>">New</a>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="input-comment">Comment:</label></td>
+						<td colspan="3"><textarea cols="43" class="search-txtarea" id="input-comment" name="comment"><?php echo $comment?></textarea></td>
+					</tr>
+				</table>
 			</form>
-			
-			<div>&nbsp;</div>
-			
-			<div>File:<?php echo __FILE__?></div>
-			<div>Line:<?php echo __LINE__?></div>
-			<div>Class:<?php echo __CLASS__?> -- <?php echo $class?></div>
-			<div>Method:<?php echo __METHOD__?> -- <?php echo $method?></div>
 			
 			<div>&nbsp;</div>
 		
 			<table>
 				<thead>
 					<tr>
-						<td colspan="11">
+						<td colspan="4">
 							<a class="link-btn" href="javascript:jump2(1)">First</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-							<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
+							<span>Current is <b><?php echo $page?>.</b></span>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
 						</td>
 					</tr>
 					<tr>
-						<th width="70">Date</th>
-						<th width="50">No.</th>
-						<th width="40">Red A</th>
-						<th width="40">Red B</th>
-						<th width="40">Red C</th>
-						<th width="40">Red D</th>
-						<th width="40">Red E</th>
-						<th width="40">Red F</th>
-						<th width="40">Blue</th>
-						<th width="40">--</th>
-						<th width="40">--</th>
+						<th width="70">No.</th>
+						<th>Login Name</th>
+						<th>Password</th>
+						<th>Status</th>
 					</tr>
 				</thead>
-				<tbody>
-					<?php foreach ( $list as $item ) : ?>
-					<tr>
-						<td><?php echo $item->dcb_dt?></td>
-						<td><?php echo $item->dcb_num?></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb1?></span></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb2?></span></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb3?></span></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb4?></span></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb5?></span></td>
-						<td align="center" class="ball ball-r"><span><?php echo $item->rb6?></span></td>
-						<td align="center" class="ball ball-b"><span><?php echo $item->blueb?></span></td>
-						<td><?php echo $item->allrb?></td>
-						<td><?php echo $item->allb?></td>
-					</tr>
-					<?php endforeach;?>
-				</tbody>
 				<tfoot>
 					<tr>
-						<td colspan="11">
+						<td colspan="4">
 							<a class="link-btn" href="javascript:jump2(1)">First</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-							<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
+							<span>Current is <b><?php echo $page?>.</b></span>
 							<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
 							<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
 						</td>
