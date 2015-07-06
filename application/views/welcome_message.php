@@ -91,6 +91,10 @@ p.footer {
 				If you are exploring CodeIgniter for the very first time, you should
 				start by reading the <a href="user_guide/">User Guide</a>.
 			</p>
+			
+			<div><?php echo base_url()?></div>
+			<div><?php echo site_url()?></div>
+			<div><?php echo current_url()?></div>
 		</div>
 
 		<p class="footer">

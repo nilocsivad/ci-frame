@@ -8,6 +8,8 @@
 <title>New Web Site</title>
 </head>
 <body class="home-body">
-	<p>New Web Site</p>
+	<div><?php echo base_url()?></div>
+	<div><?php echo site_url()?></div>
+	<div><?php echo current_url()?></div>
 </body>
 </html>
