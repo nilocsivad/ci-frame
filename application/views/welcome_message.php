@@ -20,7 +20,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 
 body {
 	background-color: #fff;
-	margin: 40px;
+	margin: 20px;
 	font: 13px/20px normal Helvetica, Arial, sans-serif;
 	color: #4F5155;
 }
@@ -48,12 +48,12 @@ code {
 	border: 1px solid #D0D0D0;
 	color: #002166;
 	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
+	margin: 14px 0;
+	padding: 12px 10px;
 }
 
 #body {
-	margin: 0 15px 0 15px;
+	margin: 0 20px;
 }
 
 p.footer {
@@ -66,7 +66,7 @@ p.footer {
 }
 
 #container {
-	margin: 10px;
+	margin: 20px;
 	border: 1px solid #D0D0D0;
 	box-shadow: 0 0 8px #D0D0D0;
 }
@@ -78,19 +78,14 @@ p.footer {
 		<h1>Welcome to CodeIgniter!</h1>
 
 		<div id="body">
-			<p>The page you are looking at is being generated dynamically by
-				CodeIgniter.</p>
-
-			<p>If you would like to edit this page you'll find it located at:</p>
-			<code>application/views/welcome_message.php</code>
-
-			<p>The corresponding controller for this page is found at:</p>
-			<code>application/controllers/Welcome.php</code>
-
 			<p>
 				If you are exploring CodeIgniter for the very first time, you should
 				start by reading the <a href="user_guide/">User Guide</a>.
 			</p>
+			
+			<code><a href="<?php echo site_url( "user" ) ?>">application/controllers/User.php</a></code>
+			<code><a href="<?php echo site_url( "doublecolorball" ) ?>">application/controllers/DoubleColorBall.php</a></code>
+			<code><a href="<?php echo site_url( "site" ) ?>">application/controllers/Site.php</a></code>
 			
 			<div><?php echo base_url()?></div>
 			<div><?php echo site_url()?></div>
