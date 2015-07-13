@@ -1,0 +1,66 @@
+::selection {
+  color: white;
+  background-color: #99c742;
+}
+::-moz-selection {
+  color: white;
+  background-color: #99c742;
+}
+* {
+  font-family: Consolas, 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+a {
+  font-weight: normal;
+  color: #003399;
+  background-color: transparent;
+}
+a:hover,
+a:active {
+  color: #ff3333;
+}
+body {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+h1 {
+  font-size: 22px;
+}
+h2 {
+  font-size: 20px;
+}
+h3 {
+  font-size: 18px;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+input {
+  cursor: pointer;
+}
+input[type='text'],
+input[type='password'] {
+  cursor: default;
+}
+ol,
+ul,
+li {
+  list-style: none;
+}
+p {
+  height: 120%;
+  line-height: 120%;
+}
+
+.hide-dom {
+	display: none;
+}

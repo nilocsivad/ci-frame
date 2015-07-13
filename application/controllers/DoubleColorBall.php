@@ -47,7 +47,7 @@ class Doublecolorball extends MY_Controller {
 				}
 			}
 			
-			if ( count( $data ) < 20 ) // ** 
+			if ( count( $row_data ) < 20 ) // ** 
 				break;
 			
 			if ( $loop ) {
@@ -56,10 +56,12 @@ class Doublecolorball extends MY_Controller {
 				$doc = new DOMDocument();
 				$doc->loadHTML( $data );
 				$xpath = new DOMXpath( $doc );
+			} else {
+				break;
 			}
 		} while ( $loop );
 		
-		self::index();
+		redirect( site_url( "doublecolorball" ) );
 	}
 	
 	private function ResolveURL( $i ) {

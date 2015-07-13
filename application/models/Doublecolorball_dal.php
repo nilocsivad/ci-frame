@@ -22,7 +22,7 @@ class Doublecolorball_dal extends CI_Model {
 		{
 			$q = self::pack_q( $param, $data );
 		
-			$data[ "list" ] = $q->limit( $size, $offset )->get()->result();
+			$data[ "list" ] = $q->order_by( "dcb_num", "DESC" )->limit( $size, $offset )->get()->result();
 			$data[ "length" ] = $length;
 			$data[ "sum" ] = $sum;
 			$data[ "offset" ] = $offset;

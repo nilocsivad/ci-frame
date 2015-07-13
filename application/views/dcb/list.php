@@ -5,7 +5,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>[user/list] - ci-frame</title>
+<title>[ Double Color Ball ] - ci-frame</title>
 
 <style type="text/css">
 ::selection {
@@ -118,6 +118,9 @@ a.link-btn:active {
 .ball-b span {
 	background: #0000c0;
 }
+.hide-dom {
+	display: none;
+}
 </style>
 
 <script type="text/javascript">
@@ -130,43 +133,43 @@ a.link-btn:active {
 <body>
 
 	<div id="container">
-		<h1>Welcome to CodeIgniter!</h1>
+		<h1>Double Color Ball<a href="<?php echo base_url() ?>" style="float:right;">home</a></h1>
 		
 		<div id="body">
 		
-			<?php 
-				$url = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; 
-			?>
-			<div><?php echo $url ?></div>
-			<div><?php echo dirname( $url ); ?></div>
-			<div><?php print_r( pathinfo( $url ) ) ?></div>
-			<div><?php print_r( parse_url( $url ) ) ?></div>
-			
-			<div>&nbsp;</div>
-			
-			<div><?php echo current_url()?></div>
-			<div><?php echo site_url()?></div>
-			<div><?php echo site_url( "/" )?></div>
-			<div><?php echo site_url( "Doublecolorball" ) ?></div>
-			
-			<div>&nbsp;</div>
+			<div class="hide-dom">
+				<?php 
+					$url = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; 
+				?>
+				<div><?php echo $url ?></div>
+				<div><?php echo dirname( $url ); ?></div>
+				<div><?php print_r( pathinfo( $url ) ) ?></div>
+				<div><?php print_r( parse_url( $url ) ) ?></div>
+				
+				<div>&nbsp;</div>
+				
+				<div><?php echo current_url()?></div>
+				<div><?php echo site_url()?></div>
+				<div><?php echo site_url( "/" )?></div>
+				<div><?php echo site_url( "Doublecolorball" ) ?></div>
+			</div>
 		
 			<div><a class="link-btn" href="<?php echo site_url( "doublecolorball/increments" ) ?>">Refresh</a></div>
+			<div>&nbsp;</div>
 		
 			<form id="form-search" method="get" action="<?php echo site_url( "doublecolorball/index" ) ?>">
 				<input id="input-page" name="page" type="text" value="<?php echo $page?>" />
 				<input id="input-page" name="size" type="text" value="<?php echo $size?>" />
 				<input class="search-btn" type="submit" value="Search" />
 			</form>
-			
 			<div>&nbsp;</div>
 			
-			<div>File:<?php echo __FILE__?></div>
-			<div>Line:<?php echo __LINE__?></div>
-			<div>Class:<?php echo __CLASS__?> -- <?php echo $class?></div>
-			<div>Method:<?php echo __METHOD__?> -- <?php echo $method?></div>
-			
-			<div>&nbsp;</div>
+			<div class="hide-dom">
+				<div>File:<?php echo __FILE__?></div>
+				<div>Line:<?php echo __LINE__?></div>
+				<div>Class:<?php echo __CLASS__?> -- <?php echo $class?></div>
+				<div>Method:<?php echo __METHOD__?> -- <?php echo $method?></div>
+			</div>
 		
 			<table>
 				<thead>
