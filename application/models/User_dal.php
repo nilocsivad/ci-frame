@@ -2,7 +2,7 @@
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class User_dal extends CI_Model {
 	
-	const TABLE_NAME = "tbl_users";
+	const TABLE_NAME = "tbl_user";
 	
 	function __construct() {
 		parent::__construct();

@@ -4,6 +4,8 @@ header.header {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  position: fixed;
+  top: 0px;
   background: #99c742;
   border-bottom: 1px solid #86b52d;
 }
@@ -31,6 +33,8 @@ header.header h1.site-name a:active {
   width: 100%;
   min-height: 500px;
   margin: 0;
+  margin-top: 70px;
+  _margin-top: 70px;
   padding: 0;
   padding-bottom: 50px;
   overflow: hidden;
@@ -45,9 +49,9 @@ header.header h1.site-name a:active {
 .container {
   display: block;
   width: 80%;
-  min-width: 940px;
+  min-width: 960px;
   margin: 0 auto;
-  padding: 5px;
+  padding: 10px;
   overflow: hidden;
 }
 footer.footer {
@@ -56,8 +60,9 @@ footer.footer {
   margin: 0;
   padding: 10px 0;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
+  background: white;
   border-top: 1px solid #99c742;
 }
 footer.footer p.declare {

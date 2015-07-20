@@ -22,7 +22,7 @@ class Site_dal extends CI_Model {
 		{
 			$q = self::pack_q( $param, $data );
 		
-			$data[ "list" ] = $q->limit( $size, $offset )->get()->result();
+			$data[ "list" ] = $q->order_by( "dt_id", "DESC" )->limit( $size, $offset )->get()->result();
 			$data[ "length" ] = $length;
 			$data[ "sum" ] = $sum;
 			$data[ "offset" ] = $offset;
@@ -48,6 +48,14 @@ class Site_dal extends CI_Model {
 			$data[ "comment" ] = $comment;
 		}
 		return $q;
+	}
+	
+	function new_site( $data ) {
+		$this->db->insert( self::TABLE_NAME, $data );
+	}
+	
+	function del_site( $data ) {
+		$this->db->where( $data )->delete( self::TABLE_NAME );
 	}
 	
 }

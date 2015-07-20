@@ -24,7 +24,6 @@ a:active {
 body {
   display: block;
   width: 100%;
-  overflow: hidden;
 }
 h1 {
   font-size: 22px;
@@ -60,7 +59,6 @@ p {
   height: 120%;
   line-height: 120%;
 }
-
 .hide-dom {
-	display: none;
+  display: none;
 }

@@ -57,9 +57,9 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		
 		<p class="empty">&nbsp;</p>
 		
-		<div class="container" style="">
+		<div class="container">
 			<p class="declare">
-				Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
+				<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
 			</p>
 		</div>
 		

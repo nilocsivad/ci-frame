@@ -2,9 +2,9 @@ drop table if exists tbl_double_color_ball;
 
 drop table if exists tbl_site;
 
-drop index Index_Unique_LoginName on tbl_users;
+drop index Index_Unique_LoginName on tbl_user;
 
-drop table if exists tbl_users;
+drop table if exists tbl_user;
 
 /*==============================================================*/
 /* Table: tbl_double_color_ball                                 */
@@ -32,15 +32,16 @@ create table tbl_site
 (
    dt_id                timestamp not null default CURRENT_TIMESTAMP comment 'YYYY-MM-DD HH:mm:ss(14)',
    random_id            char(3) not null comment 'Random Number(3)',
+   title                varchar(128),
    url                  varchar(196) not null,
    comment              text,
    primary key (dt_id, random_id)
 );
 
 /*==============================================================*/
-/* Table: tbl_users                                             */
+/* Table: tbl_user                                              */
 /*==============================================================*/
-create table tbl_users
+create table tbl_user
 (
    uid                  int not null,
    lname                varchar(48) not null,
@@ -52,7 +53,7 @@ create table tbl_users
 /*==============================================================*/
 /* Index: Index_Unique_LoginName                                */
 /*==============================================================*/
-create unique index Index_Unique_LoginName on tbl_users
+create unique index Index_Unique_LoginName on tbl_user
 (
    lname
 );
