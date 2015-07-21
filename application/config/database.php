@@ -65,8 +65,8 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> 'mysql:dbname=db_ci_frame;host=127.0.0.1',
 	'hostname' => '',
-	'username' => 'root',
-	'password' => 'root',
+	'username' => 'ci_user',
+	'password' => 'ci_user_pwd',
 	'database' => '',
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',

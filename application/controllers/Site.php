@@ -1,6 +1,6 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class Site extends Mange_Login_Controller {
+class Site extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
@@ -11,11 +11,11 @@ class Site extends Mange_Login_Controller {
 		$page = isset( $_GET[ "page" ] ) ? $_GET[ "page" ] : 1;
 		$size = isset( $_GET[ "size" ] ) ? $_GET[ "size" ] : 30;
 		$data = $this->Site_dal->list_split( $_GET, $page, $size );
-		$this->load->view ( 'site\list', $data );
+		$this->load->view ( 'site/list', $data );
 	}
 	
 	public function new_ws() {
-		$this->load->view ( 'site\new_ws' );
+		$this->load->view( 'site/new_ws' );
 	}
 	
 	public function create() {

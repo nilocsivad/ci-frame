@@ -85,7 +85,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 						<input class="search-input" id="input-title" type="text" name="title" value="<?php echo $title?>" />
 					</p>
 					<p class="row-line holder-hide">
-						<label for="input-url">&nbsp;&nbsp;URL:</label>
+						<label for="input-url">URL:</label>
 						<input class="search-input" id="input-url" type="text" name="url" value="<?php echo $url?>" />
 					</p>
 					<p class="row-line holder-hide">

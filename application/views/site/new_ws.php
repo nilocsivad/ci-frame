@@ -55,21 +55,25 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 				<p class="<?php echo ( isset( $msg ) ? "error-line" : "" )?>"><?php echo ( isset( $msg ) ? $msg : "" )?></p>
 			
 				<form id="form-search" method="post" action="<?php echo site_url( "site/create" ) ?>">
-					<p class="row-line">
-						<label for="input-title">Title:</label>
-						<input class="search-input" id="input-title" type="text" name="title" value="<?php echo ( isset( $title ) ? $title : "" )?>" />
-					</p>
-					<p class="row-line">
-						<label for="input-url">&nbsp;&nbsp;URL:</label>
-						<input class="search-input" id="input-url" type="text" name="url" value="<?php echo ( isset( $url ) ? $url : "" )?>" />
-					</p>
-					<p class="row-line">
-						<label for="input-comment">Comment:</label>
-						<textarea cols="47" rows="4" class="search-txtarea" id="input-comment" name="comment"><?php echo ( isset( $comment ) ? $comment : "" )?></textarea>
-					</p>
-					<p class="row-line">
-						<input class="search-btn" type="submit" value="Push And Commit" />
-					</p>
+					<table>
+						<tr>
+							<td align="right"><label for="input-title">Title:&nbsp;</label></td>
+							<td><input class="search-input" id="input-title" type="text" name="title" value="<?php echo ( isset( $title ) ? $title : "" )?>" /></td>
+						</tr>
+						<tr>
+							<td align="right"><label for="input-url">URL:&nbsp;</label></td>
+							<td><input class="search-input" id="input-url" type="text" name="url" value="<?php echo ( isset( $url ) ? $url : "" )?>" /></td>
+						</tr>
+						<tr>
+							<td align="right"><label for="input-comment">Comment:&nbsp;</label></td>
+							<td><textarea cols="48" rows="4" class="search-txtarea" id="input-comment" name="comment"><?php echo ( isset( $comment ) ? $comment : "" )?></textarea></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="right">
+								<input class="search-btn" type="submit" value="Push And Commit" />
+							</td>
+						</tr>
+					</table>
 				</form>
 				
 				<p class="empty">&nbsp;</p>

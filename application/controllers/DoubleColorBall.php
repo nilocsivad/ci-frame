@@ -13,7 +13,7 @@ class Doublecolorball extends MY_Controller {
 		$data = $this->Doublecolorball_dal->list_split( $_GET, $page, $size );
 		$data[ "class" ] = __CLASS__;
 		$data[ "method" ] = __METHOD__;
-		$this->load->view ( 'dcb\list', $data );
+		$this->load->view ( 'dcb/list', $data );
 	}
 	
 	const DCB_URL = "http://kaijiang.zhcw.com/zhcw/html/ssq/list_";
@@ -29,7 +29,7 @@ class Doublecolorball extends MY_Controller {
 		$doc->loadHTML( $data );
 		$xpath = new DOMXpath( $doc );
 		$doms = $xpath->query( "//html/body/table/tr/td/p[@class='pg']/strong" );
-		$sum = $doms[ 0 ]->nodeValue;
+		$sum = $doms->item( 0 )->nodeValue;
 		
 		$loop = false;
 		do {
@@ -79,17 +79,17 @@ class Doublecolorball extends MY_Controller {
 		$arr_data = array();
 		$idx = 0;
 		for ( $i = 2, $l = $trs->length - 1; $l > $i; $i++ ) {
-			$tds = $xpath->query( "td", $trs[ $i ] );
-			$row[ "dcb_dt" ] = $tds[ 0 ]->nodeValue;
-			$row[ "dcb_num" ] = $tds[ 1 ]->nodeValue;
-			$ems = $xpath->query( "em", $tds[ 2 ] );
-			$row[ "rb1" ] = $ems[ 0 ]->nodeValue;
-			$row[ "rb2" ] = $ems[ 1 ]->nodeValue;
-			$row[ "rb3" ] = $ems[ 2 ]->nodeValue;
-			$row[ "rb4" ] = $ems[ 3 ]->nodeValue;
-			$row[ "rb5" ] = $ems[ 4 ]->nodeValue;
-			$row[ "rb6" ] = $ems[ 5 ]->nodeValue;
-			$row[ "blueb" ] = $ems[ 6 ]->nodeValue;
+			$tds = $xpath->query( "td", $trs->item( $i ) );
+			$row[ "dcb_dt" ] = $tds->item( 0 )->nodeValue;
+			$row[ "dcb_num" ] = $tds->item( 1 )->nodeValue;
+			$ems = $xpath->query( "em", $tds->item( 2 ) );
+			$row[ "rb1" ] = $ems->item( 0 )->nodeValue;
+			$row[ "rb2" ] = $ems->item( 1 )->nodeValue;
+			$row[ "rb3" ] = $ems->item( 2 )->nodeValue;
+			$row[ "rb4" ] = $ems->item( 3 )->nodeValue;
+			$row[ "rb5" ] = $ems->item( 4 )->nodeValue;
+			$row[ "rb6" ] = $ems->item( 5 )->nodeValue;
+			$row[ "blueb" ] = $ems->item( 6 )->nodeValue;
 			$row[ "allrb" ] = $row[ "rb1" ] . $row[ "rb2" ] . $row[ "rb3" ] . $row[ "rb4" ] . $row[ "rb5" ] . $row[ "rb6" ];
 			$row[ "allb" ] = $row[ "allrb" ] . $row[ "blueb" ];
 			$arr_data[ $idx++ ] = $row;
