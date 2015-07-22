@@ -9,7 +9,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>[ Index ] - CodeIgniter Frame</title>
+<title>[ Index ] - I Am VIP</title>
 
 <link href="<?php echo base_url() . "static/self/html.global.css" ?>" rel="stylesheet" />
 <link href="<?php echo base_url() . "static/self/html.frame.css" ?>" rel="stylesheet" />
@@ -19,15 +19,145 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <script src="<?php echo base_url() . "static/script/jquery/1.11.2/jquery.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "static/self/html.script.js" ?>"></script>
 <script type="text/javascript">
+	var body_w = 0;
+	var auto_scroll_timer = null;
+	var isSetAutoScroll = false;
+	var LONG_DELAY_TIME = 3000;
+
+	function init() {
+
+		if ( window.getComputedStyle ) {
+			var body_w_str = window.getComputedStyle(document.body).width;
+				body_w_str = body_w_str.substring(0, body_w_str.length - 2);
+			body_w = window.parseInt(body_w_str);
+		} else {
+			body_w = $(window).width();
+		}
+
+		var scroll = document.getElementById("scroll-dom");
+		scroll.style.left = "0px";
+
+		var items = scroll.getElementsByTagName("li");
+		for (var i = 0, l = items.length; l > i; ++i) {
+			var li = items[i];
+			li.style.width = body_w + "px";
+			li.style.backgroundPosition = "center";
+		}
+
+		if (!isSetAutoScroll) {
+			auto_scroll_timer = window.setInterval(function() {
+				introduce_scroll('scroll-dom', 'right');
+			}, LONG_DELAY_TIME);
+			isSetAutoScroll = true;
+		}
+	};
+	window.onload = init;
+	window.onresize = function() {
+		window.setTimeout( init, 100 );
+	};
 </script>
 </head>
 <body>
 
-	<header class="header">
-		<h1 class="site-name"><a href="#">CodeIgniter Frame</a></h1>
+	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
+		<h1 class="site-name"><a href="<?php echo base_url()?>">I Am VIP</a></h1>
 	</header>
 	
 	<div id="wrapper">
+		
+		<div id="img-introduce" class="img-introduce" style="display:block;width:100%;height:480px;margin:0;padding:0;overflow-x:hidden;">
+			<div style="display:block;width:99999px;height:100%;margin:0;padding:0;" onmouseover="auto_scroll( false )" onmouseout="auto_scroll( true )">
+				<ol id="scroll-dom" style="display: block; width: 100%; height: 100%; margin: 0; padding: 0; position: relative; left: 0px; list-style: none;">
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1001.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1002.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1003.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1004.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1005.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1006.jpg" ?>') center center no-repeat;" /></li>
+					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1007.jpg" ?>') center center no-repeat;" /></li>
+				</ol>
+			</div>
+			<!-- <a class="cur-intro cur-intro-l" href="javascript:introduce_scroll('scroll-dom','left')" style="filter:alpha(opacity=50);opacity:0.5;"> <img src="./images/prev.png" /></a> 
+			<a class="cur-intro cur-intro-r" href="javascript:introduce_scroll('scroll-dom','right')" style="filter:alpha(opacity=50);opacity:0.5;"> <img src="./images/next.png" /></a> -->
+			<script type="text/javascript">
+				function auto_scroll(enable) {
+					if (enable) {
+						if (!isSetAutoScroll) {
+							auto_scroll_timer = window.setInterval(function() {
+								introduce_scroll('scroll-dom', 'right');
+							}, LONG_DELAY_TIME);
+						}
+					} else {
+						window.clearInterval(auto_scroll_timer);
+					}
+					isSetAutoScroll = enable;
+				}
+			</script>
+			<script type="text/javascript">
+				var isScrolling = false;
+				function introduce_scroll(olID, direction) {
+	
+					if (isScrolling) {
+						return;
+					}
+					isScrolling = true;
+	
+					var liWidth = body_w;
+					var count = 1;
+					var num = 50;
+	
+					var scroll_dom = document.getElementById(olID);
+					var str_left = scroll_dom.style.left;
+						str_left = str_left.substring(0, str_left.length - 2);
+					var left = window.parseInt(str_left);
+
+					var len = scroll_dom.getElementsByTagName("li").length;
+					var ol_width = len * liWidth;
+	
+					var go = 0;
+					if (direction == 'left') {
+						if (-left <= 0) {
+							num = 200;
+							go = liWidth * count - ol_width;
+						} else {
+							go = left + liWidth;
+						}
+					} else {
+						if (-left >= ol_width - liWidth * count) {
+							go = 0;
+							num = 200;
+						} else {
+							go = left - liWidth;
+						}
+					}
+	
+					if (go > left) {
+						var timer = window.setInterval(function() {
+							if (left < go) {
+								left += num;
+								scroll_dom.style.left = left + "px";
+							} else {
+								window.clearInterval(timer);
+								scroll_dom.style.left = go + "px";
+								isScrolling = false;
+							}
+						}, 1);
+					} else {
+						var timer = window.setInterval(function() {
+							if (left > go) {
+								left -= num;
+								scroll_dom.style.left = left + "px";
+							} else {
+								window.clearInterval(timer);
+								scroll_dom.style.left = go + "px";
+								isScrolling = false;
+							}
+						}, 1);
+					}
+				}
+			</script>
+		</div>
+		
 		<p class="empty">&nbsp;</p>
 		
 		<div class="container box-shadow">

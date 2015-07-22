@@ -9,7 +9,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>[ Double Color Ball ] - CodeIgniter Frame</title>
+<title>[ Double Color Ball ] - I Am VIP</title>
 
 <link href="<?php echo base_url() . "static/self/html.global.css" ?>" rel="stylesheet" />
 <link href="<?php echo base_url() . "static/self/html.frame.css" ?>" rel="stylesheet" />
@@ -29,7 +29,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <body>
 
 	<header class="header">
-		<h1 class="site-name"><a href="<?php echo base_url() ?>">CodeIgniter Frame</a></h1>
+		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
 	</header>
 	
 	<div id="wrapper">
