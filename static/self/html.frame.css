@@ -7,15 +7,15 @@ header.header {
   position: fixed;
   top: 0px;
   z-index: 99;
-  background: #2476c8;
-  /*#5895e5;#99c742;*/
-  border-bottom: 1px solid #86b52d;
+  background: #99c742;
+  border-bottom: 1px solid #608814;
+  /*#86b52d;*/
 }
 header.header h1.site-name {
   width: 80%;
   min-width: 960px;
-  height: 70px;
-  line-height: 70px;
+  height: 40px;
+  line-height: 40px;
   margin: 0 auto;
   padding: 0;
   color: white;
@@ -29,6 +29,11 @@ header.header h1.site-name a {
 header.header h1.site-name a:hover,
 header.header h1.site-name a:active {
   text-decoration: underline;
+}
+div.top-empty {
+  display: block;
+  width: 100%;
+  height: 40px;
 }
 #wrapper {
   display: block;
@@ -59,17 +64,18 @@ footer.footer {
   display: block;
   width: 100%;
   margin: 0;
-  padding: 10px 0;
+  padding: 2px 0;
   overflow: hidden;
-  /*position:fixed;bottom:0px;*/
+  position: fixed;
+  bottom: 0px;
   background: white;
   border-top: 1px solid #99c742;
 }
 footer.footer p.declare {
   display: block;
   min-width: 960px;
-  height: 30px;
-  line-height: 30px;
+  height: 22px;
+  line-height: 22px;
   margin: 0 auto;
   padding: 0;
   color: #9c9c9c;

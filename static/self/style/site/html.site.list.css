@@ -6,6 +6,10 @@ h1.title {
   font-size: 19px;
   font-weight: bold;
 }
+h1.title a.back-link {
+  display: block;
+  float: right;
+}
 tr {
   height: 42px;
   line-height: 42px;
@@ -37,13 +41,7 @@ p.item-line {
   line-height: 18px;
   overflow: hidden;
 }
-p.item-line span.dt-span {
-  display: block;
-  float: right;
-  color: #999;
-  font-size: 11px;
-}
-p.item-line span.dt-span a.item-del {
+p.item-line a.item-del {
   display: block;
   float: right;
   width: 14px;
@@ -53,6 +51,15 @@ p.item-line span.dt-span a.item-del {
   color: red;
   text-decoration: none;
 }
+p.item-line span.dt-span {
+  display: block;
+  float: right;
+  color: #999;
+  font-size: 11px;
+}
+p.gray-text {
+  color: gray;
+}
 div.row-item {
   margin: 2px 0;
   padding: 4px 0 0;
@@ -60,18 +67,6 @@ div.row-item {
 }
 table.list-table {
   width: 100%;
-}
-.ball span {
-  display: block;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-  margin: 0 auto;
-  background: red;
-  border-radius: 12px;
-  text-align: center;
-  color: white;
-  cursor: pointer;
 }
 .box-shadow {
   border: 1px solid #d0d0d0;
@@ -99,7 +94,7 @@ table.list-table {
   text-align: center;
 }
 .search-input {
-  width: 360px;
+  width: 200px;
   height: 22px;
   line-height: 22px;
   border: 1px solid #ccc;

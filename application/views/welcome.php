@@ -23,7 +23,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 	var auto_scroll_timer = null;
 	var isSetAutoScroll = false;
 	var LONG_DELAY_TIME = 3000;
-
+	
 	function init() {
 
 		if ( window.getComputedStyle ) {
@@ -65,20 +65,20 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 	
 	<div id="wrapper">
 		
-		<div id="img-introduce" class="img-introduce" style="display:block;width:100%;height:480px;margin:0;padding:0;overflow-x:hidden;">
-			<div style="display:block;width:99999px;height:100%;margin:0;padding:0;" onmouseover="auto_scroll( false )" onmouseout="auto_scroll( true )">
-				<ol id="scroll-dom" style="display: block; width: 100%; height: 100%; margin: 0; padding: 0; position: relative; left: 0px; list-style: none;">
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1001.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1002.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1003.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1004.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1005.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1006.jpg" ?>') center center no-repeat;" /></li>
-					<li style="display:block;float:left;width:100%;height:100%;margin:0;padding:0px;background:url('<?php echo base_url() . "static/images/scroll/1007.jpg" ?>') center center no-repeat;" /></li>
+		<div id="img-introduce">
+			<div class="full-box" onmouseover="auto_scroll( false )" onmouseout="auto_scroll( true )">
+				<ol id="scroll-dom">
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1008.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "doublecolorball" ) ?>">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1003.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "site" ) ?>">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1002.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "user" ) ?>">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1001.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1004.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1006.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1007.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
 				</ol>
 			</div>
-			<!-- <a class="cur-intro cur-intro-l" href="javascript:introduce_scroll('scroll-dom','left')" style="filter:alpha(opacity=50);opacity:0.5;"> <img src="./images/prev.png" /></a> 
-			<a class="cur-intro cur-intro-r" href="javascript:introduce_scroll('scroll-dom','right')" style="filter:alpha(opacity=50);opacity:0.5;"> <img src="./images/next.png" /></a> -->
+			<a class="cur-intro cur-l" href="javascript:introduce_scroll('scroll-dom','left')" style="filter:alpha(opacity=50);opacity:0.5;"> <img class="i-l" src="<?php echo base_url() . "static/images/cursor/prev.png" ?>" /></a> 
+			<a class="cur-intro cur-r" href="javascript:introduce_scroll('scroll-dom','right')" style="filter:alpha(opacity=50);opacity:0.5;"> <img class="i-r" src="<?php echo base_url() . "static/images/cursor/next.png" ?>" /></a>
 			<script type="text/javascript">
 				function auto_scroll(enable) {
 					if (enable) {
@@ -186,12 +186,6 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		</div>
 		
 		<p class="empty">&nbsp;</p>
-		
-		<div class="container">
-			<p class="declare">
-				<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-			</p>
-		</div>
 		
 	</div>
 	

@@ -97,6 +97,7 @@ p.error-line {
   border: 1px solid #3333aa;
 }
 .search-txtarea {
+  width: 360px;
   border: 1px solid #ccc;
   outline: none;
 }

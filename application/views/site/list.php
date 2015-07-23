@@ -24,18 +24,28 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		document.getElementById( "input-page" ).value = go2;
 		document.getElementById( "form-search" ).submit();
 	}
+	function clear2go() {
+		document.getElementById( "input-title" ).value = "";
+		document.getElementById( "input-comment" ).value = "";
+		jump2( 1 );
+	}
 	var vHide = true;
-	function toggle2(dom) {
+	function toggle2( dom ) {
 		if ( vHide ) {
 			vHide = false;
-			$(".holder-hide").show(500);
-			$("#toggle-s").text("↑");
+			$( ".holder-hide" ).show( 500 );
+			$( "#toggle-s" ).text( "↑" );
 		} else {
 			vHide = true;
-			$(".holder-hide").hide(500);
-			$("#toggle-s").text("↓");
+			$( ".holder-hide" ).hide( 500 );
+			$( "#toggle-s" ).text( "↓" );
 		}
 	}
+</script>
+<?php $show_new = ( isset( $new_site ) && $new_site == true ) ?>
+<?php $show_remove = ( isset( $del_site ) && $del_site == true ) ?>
+<?php if ( $show_remove ) : ?>
+<script type="text/javascript">
 	function remove(dom,rID,idx) {
 		var txt = $( "#row-dt-id-" + idx ).text();
 			txt = txt.substring( 0, txt.length - 2 ).trim();
@@ -54,18 +64,21 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		}
 	}
 </script>
+<?php endif;?>
 </head>
 <body>
 
-	<header class="header">
+	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
 		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
 	</header>
+	
+	<div class="top-empty">&nbsp;</div>
 	
 	<div id="wrapper">
 		<p class="empty">&nbsp;</p>
 		
 		<div class="container box-shadow">
-			<h1 class="title">Web Site List</h1>
+			<h1 class="title">Web Site List<a class="back-link" title="Back to home" href="<?php echo base_url()?>">&lt;home</a></h1>
 			
 			<div id="body">
 			
@@ -77,28 +90,25 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 						<input id="input-size" name="size" type="text" value="<?php echo $size?>" />
 						<span>&nbsp;rows.&nbsp;&nbsp;</span>
 						<input class="search-btn" type="submit" value="Go" />
+						<?php if ( $show_new ) : ?>
 						<a class="search-btn" href="<?php echo site_url( "site/new_ws" ) ?>">New</a>
+						<?php endif;?>
 						<a class="search-btn" id="toggle-s" href="javascript:toggle2(this)">↓</a>
 					</p>
 					<p class="row-line holder-hide">
 						<label for="input-title">Title:</label>
-						<input class="search-input" id="input-title" type="text" name="title" value="<?php echo $title?>" />
-					</p>
-					<p class="row-line holder-hide">
-						<label for="input-url">URL:</label>
-						<input class="search-input" id="input-url" type="text" name="url" value="<?php echo $url?>" />
-					</p>
-					<p class="row-line holder-hide">
-						<label for="input-comment">Comment:</label>
-						<textarea cols="36" rows="4" class="search-txtarea" id="input-comment" name="comment"><?php echo $comment?></textarea>
+						<input class="search-input" id="input-title" type="text" name="title" placeholder="Title" value="<?php echo $title?>" />
+						<label for="input-url">Comment:</label>
+						<input class="search-input" id="input-comment" type="text" name="comment" placeholder="Comment" value="<?php echo $comment?>" />
 						<input class="search-btn" type="submit" value="Search" />
+						<a class="search-btn" href="javascript:clear2go()">Clear</a>
 					</p>
 				</form>
 			
 				<table class="list-table">
 					<thead>
 						<tr>
-							<td colspan="3">
+							<td colspan="4">
 								<a class="link-btn" href="javascript:jump2(1)">First</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
 								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
@@ -110,30 +120,36 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 							<th>Title</th>
 							<th>Store Time</th>
 							<th>URL</th>
+							<th>Comment</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php $index = 1;?>
 						<?php foreach ( $list as $item ) : ?>
 						<tr class="row-line" id="<?php echo ( "row-line-id-" . $index )?>">
-							<td colspan="3">
+							<td colspan="4">
 								<div class="row-item">
 									<p class="item-line" title="<?php echo $item->title . " " . $item->dt_id?>">
 										<span><?php echo $item->title?></span>
 										<span>&nbsp;</span>
-										<span class="dt-span" id="<?php echo ( "row-dt-id-" . $index )?>"><?php echo $item->dt_id?>&nbsp;<a title="Remove this item" class="item-del" href="javascript:remove(this,<?php echo $item->random_id?>,<?php echo ( $index++ )?>)">&times;</a></span>
+										<?php if ( $show_remove ) : ?>
+										<a title="Remove this item" class="item-del" href="javascript:remove(this,<?php echo $item->random_id?>,<?php echo $index?>)">&times;</a>
+										<?php endif;?>
+										<span class="dt-span" id="<?php echo ( "row-dt-id-" . $index )?>"><?php echo $item->dt_id?>&nbsp;</span>
 									</p>
 									<p class="item-line" title="<?php echo $item->url?>">
 										<a target="_blank" href="<?php echo $item->url?>"><?php echo $item->url?></a>
 									</p>
+									<p class="item-line gray-text" title="<?php echo $item->comment?>">Comment: <?php echo $item->comment?></p>
 								</div>
 							</td>
 						</tr>
+						<?php $index++?>
 						<?php endforeach;?>
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan="3">
+							<td colspan="4">
 								<a class="link-btn" href="javascript:jump2(1)">First</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
 								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
@@ -151,12 +167,6 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		</div>
 		
 		<p class="empty">&nbsp;</p>
-		
-		<div class="container">
-			<p class="declare">
-				<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-			</p>
-		</div>
 		
 	</div>
 	

@@ -4,6 +4,9 @@ h1.title {
 	margin:0 0 14px 0;padding:14px 15px 10px 0;
 	border-bottom:1px solid #D0D0D0;
 	color:#444;font-size:19px;font-weight:bold;
+	a.back-link {
+		display:block;float:right;
+	}
 }
 
 tr {
@@ -33,14 +36,17 @@ p {
 	}
 	&.item-line {
 		height:18px;line-height:18px;overflow:hidden;
+		a.item-del {
+			display:block;float:right;width:14px;height:14px;line-height:10px;
+			font-weight:bold;color:red;text-decoration:none;
+		}
 		span.dt-span {
 			display:block;float:right;
 			color:#999;font-size:11px;
-			a.item-del {
-				display:block;float:right;width:14px;height:14px;line-height:10px;
-				font-weight:bold;color:red;text-decoration:none;
-			}
 		}
+	}
+	&.gray-text {
+		color:gray;
 	}
 }
 
@@ -51,12 +57,6 @@ div.row-item {
 
 table.list-table {
 	width:100%;
-}
-
-.ball span {
-	display:block;width:24px;height:24px;line-height:24px;margin:0 auto;
-	background:red;border-radius:12px;text-align:center;
-	color:white;cursor:pointer;
 }
 
 .box-shadow { 
@@ -76,7 +76,7 @@ table.list-table {
 	text-align:center;
 }
 .search-input {
-	width:360px;height:22px;line-height:22px;
+	width:200px;height:22px;line-height:22px;
 	border:1px solid #ccc;outline:none;
 }
 .search-btn {

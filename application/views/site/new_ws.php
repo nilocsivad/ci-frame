@@ -40,9 +40,11 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 </head>
 <body>
 
-	<header class="header">
+	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
 		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
 	</header>
+	
+	<div class="top-empty">&nbsp;</div>
 	
 	<div id="wrapper">
 		<p class="empty">&nbsp;</p>
@@ -85,12 +87,6 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		</div>
 		
 		<p class="empty">&nbsp;</p>
-		
-		<div class="container">
-			<p class="declare">
-				<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-			</p>
-		</div>
 		
 	</div>
 	

@@ -28,15 +28,17 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 </head>
 <body>
 
-	<header class="header">
+	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
 		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
 	</header>
+	
+	<div class="top-empty">&nbsp;</div>
 	
 	<div id="wrapper">
 		<p class="empty">&nbsp;</p>
 		
 		<div class="container box-shadow">
-			<h1 class="title">Double Color Ball</h1>
+			<h1 class="title">Double Color Ball<a class="back-link" title="Back to home" href="<?php echo base_url()?>">&lt;home</a></h1>
 			
 			<div id="body">
 			
@@ -136,12 +138,6 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		</div>
 		
 		<p class="empty">&nbsp;</p>
-		
-		<div class="container">
-			<p class="declare">
-				<?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?>
-			</p>
-		</div>
 		
 	</div>
 	
