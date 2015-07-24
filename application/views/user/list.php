@@ -61,12 +61,13 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 </script>
 <?php $remove_all = ( isset( $remove_all ) && $remove_all == true ) ?>
 <?php $show_new = ( isset( $new_user ) && $new_user == true ) ?>
-<?php $show_remove = ( isset( $del_user ) && $del_user == true ) ?>
 </head>
 <body>
 
-	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
-		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
+	<header class="header">
+		<div class="header-box">
+			<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
+		</div>
 	</header>
 	
 	<div class="top-empty">&nbsp;</div>
@@ -88,7 +89,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 						<span>&nbsp;rows.&nbsp;&nbsp;</span>
 						<input class="search-btn" type="submit" value="Go" />
 						<?php if ( $show_new ) : ?>
-						<a class="search-btn" href="<?php echo site_url( "site/new_ws" ) ?>">New</a>
+						<a class="search-btn" href="<?php echo site_url( "user/new_" ) ?>">New</a>
 						<?php endif;?>
 						<a class="search-btn" id="toggle-s" href="javascript:toggle2(this)">↓</a>
 					</p>
@@ -106,32 +107,38 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 					</p>
 				</form>
 			
-				<table>
+				<table class="list-table">
 					<thead>
 						<tr>
 							<td colspan="4">
 								<a class="link-btn" href="javascript:jump2(1)">First</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-								<span>Current is <b><?php echo $page?>.</b></span>
+								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
 							</td>
 						</tr>
-						<tr>
-							<th width="70">No.</th>
+						<tr align="left" class="row-title">
 							<th>Login Name</th>
-							<th>Password</th>
+							<th>Type</th>
 							<th>Status</th>
+							<th>Create Time</th>
 						</tr>
 					</thead>
 					<tbody>
 						<?php $idx = ( $page - 1 ) * $size + 1; ?>
 						<?php foreach ( $list as $item ) : ?>
-						<tr>
-							<td align="center"><?php echo $idx++; ?></td>
-							<td><a href="?uid=<?php echo $item->uid?>"><?php echo $item->lname?></a></td>
-							<td><?php echo $item->lpwd?></td>
+						<tr class="row-line">
+							<td title="<?php echo $item->lname?>"><a href="#"><?php echo $item->lname?></a></td>
+							<td><?php echo $item->type?></td>
 							<td><?php echo $item->status?></td>
+							<td>
+								<?php echo $item->time?>
+								<?php if ( $remove_all ) : ?>
+								<a href="#" title="Modify this line">m</a>
+								<a href="#" title="Remove this user">&times;</a>
+								<?php endif;?>
+							</td>
 						</tr>
 						<?php endforeach;?>
 					</tbody>
@@ -140,7 +147,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 							<td colspan="4">
 								<a class="link-btn" href="javascript:jump2(1)">First</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-								<span>Current is <b><?php echo $page?>.</b></span>
+								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
 								<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
 								<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
 							</td>

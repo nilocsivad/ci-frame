@@ -50,4 +50,12 @@ class User_dal extends CI_Model {
 		$this->db->insert_batch( self::TABLE_NAME, $datas );
 	}
 	
+	function new_user( $data ) {
+		$this->db->insert( self::TABLE_NAME, $data );
+	}
+	
+	function login( $data ) {
+		return $this->db->from( self::TABLE_NAME )->where( $data )->get()->row();
+	}
+	
 }

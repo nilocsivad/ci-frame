@@ -1,8 +1,9 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class MY_Controller extends CI_Controller {
-	
+
 	const ONLINE_SESSION_KEY = "MY_Controller.ONLINE_SESSION_KEY";
+	const ONLINE_KEY = "MY_Controller.ONLINE_KEY";
 	
 	function __construct() {
 		parent::__construct();

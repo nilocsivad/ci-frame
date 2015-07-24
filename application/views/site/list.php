@@ -69,8 +69,10 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 </head>
 <body>
 
-	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
-		<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
+	<header class="header">
+		<div class="header-box">
+			<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
+		</div>
 	</header>
 	
 	<div class="top-empty">&nbsp;</div>
@@ -92,7 +94,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 						<span>&nbsp;rows.&nbsp;&nbsp;</span>
 						<input class="search-btn" type="submit" value="Go" />
 						<?php if ( $show_new ) : ?>
-						<a class="search-btn" href="<?php echo site_url( "site/new_ws" ) ?>">New</a>
+						<a class="search-btn" href="<?php echo site_url( "site/new_" ) ?>">New</a>
 						<?php endif;?>
 						<a class="search-btn" id="toggle-s" href="javascript:toggle2(this)">↓</a>
 					</p>

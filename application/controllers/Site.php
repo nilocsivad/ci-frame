@@ -19,7 +19,10 @@ class Site extends MY_Controller {
 				$data[ "new_site" ] = true;
 				$data[ "del_site" ] = true;
 			}
-			if ( $online->type == 999 ) { // ** manager
+			if ( $online->type == 900 && $online->status == 100 ) { // ** general manager
+				$data[ "remove_all" ] = true;
+			}
+			if ( $online->type == 999 ) { // ** highest manager
 				$data[ "remove_all" ] = true;
 			}
 		}
@@ -27,8 +30,8 @@ class Site extends MY_Controller {
 		$this->load->view( 'site/list', $data );
 	}
 	
-	public function new_ws() {
-		$this->load->view( 'site/new_ws' );
+	public function new_() {
+		$this->load->view( 'site/new_' );
 	}
 	
 	public function create() {
@@ -42,8 +45,9 @@ class Site extends MY_Controller {
 				$data = array( "title" => $title, "url" => $url, "comment" => $comment );
 				
 				if ( $title == "" || $url == "" ) {
-					$this->session->set_flashdata( "msg", "Title or URL can not be null!" );
-					redirect( site_url( "site/new_ws" ) );
+					$this->session->set_flashdata( "msg", "Title or URL must not be null!" );
+					$this->session->set_flashdata( "data", $data );
+					redirect( site_url( "site/new_" ) );
 				} else {
 					$data[ "dt_id" ] = date( "Y-m-d H:i:s" );
 					$data[ "random_id" ] = rand( 100, 999 );
@@ -52,11 +56,11 @@ class Site extends MY_Controller {
 				}
 			} else {
 				$this->session->set_flashdata( "msg", "Unlogin status!" );
-				redirect( site_url( "site/new_ws" ) );
+				redirect( site_url( "site/new_" ) );
 			}
 		} else {
 			$this->session->set_flashdata( "msg", "Unsupported method 'get'!" );
-			redirect( site_url( "site/new_ws" ) );
+			redirect( site_url( "site/new_" ) );
 		}
 	}
 	

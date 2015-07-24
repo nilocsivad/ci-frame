@@ -1,6 +1,10 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 class Welcome extends MY_Controller {
+
+	function __construct() {
+		parent::__construct();
+	}
 	
 	/**
 	 * Index Page for this controller.
@@ -19,6 +23,8 @@ class Welcome extends MY_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index() {
-		$this->load->view ( 'welcome' );
+		$online = $this->session->userdata( parent::ONLINE_KEY );
+		$data = array( "is_login", ( empty( $online ) ? false : $online ) );
+		$this->load->view( 'welcome', $data );
 	}
 }

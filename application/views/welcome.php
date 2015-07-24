@@ -60,7 +60,18 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <body>
 
 	<header class="header" style="filter:alpha(opacity=75);opacity:0.75;">
-		<h1 class="site-name"><a href="<?php echo base_url()?>">I Am VIP</a></h1>
+		<div class="header-box">
+			<h1 class="site-name"><a href="<?php echo base_url()?>">I Am VIP</a></h1>
+			<ol class="header-menu">
+				<?php $online = $this->session->userdata( "MY_Controller.ONLINE_KEY" ); ?>
+				<?php if ( !empty( $online ) && $online == true ) : ?>
+				<li><a href="<?php echo site_url( "user/out" ) ?>?link=<?php echo current_url() ?>">[logout]</a></li>
+				<?php else : ?>
+				<li><a href="<?php echo site_url( "user/enter" ) ?>?link=<?php echo current_url() ?>">[login]</a></li>
+				<?php endif;?>
+			</ol>
+			<div style="clear:both;"></div>
+		</div>
 	</header>
 	
 	<div id="wrapper">
@@ -71,7 +82,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1008.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "doublecolorball" ) ?>">&nbsp;</a></li>
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1003.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "site" ) ?>">&nbsp;</a></li>
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1002.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "user" ) ?>">&nbsp;</a></li>
-					<li style="background:url('<?php echo base_url() . "static/images/scroll/1001.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
+					<li style="background:url('<?php echo base_url() . "static/images/scroll/1001.jpg" ?>') center center no-repeat;" /><a href="<?php echo site_url( "selfmd5" ) ?>">&nbsp;</a></li>
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1004.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1006.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
 					<li style="background:url('<?php echo base_url() . "static/images/scroll/1007.jpg" ?>') center center no-repeat;" /><a href="#">&nbsp;</a></li>
@@ -171,6 +182,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 				<a class="link-btn" href="<?php echo site_url( "user" ) ?>">User</a>
 				<a class="link-btn" href="<?php echo site_url( "doublecolorball" ) ?>">Double Color Ball</a>
 				<a class="link-btn" href="<?php echo site_url( "site" ) ?>">Site</a>
+				<a class="link-btn" href="<?php echo site_url( "selfmd5" ) ?>">Self MD5</a>
 			</div>
 			
 			<div class="hide-dom">

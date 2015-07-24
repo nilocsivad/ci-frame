@@ -4,13 +4,30 @@ header.header {
   	position:fixed;top:0px;z-index:99;
   	background:/*#5895e5;*/#99c742;
   	border-bottom:1px solid #608814;/*#86b52d;*/
-	h1.site-name {
-	  	width:80%;min-width:960px;height:40px;line-height:40px;margin:0 auto;padding:0;
-	  	color:white;
-	  	a {
-		  	color:#ffffff;font-size:30px;font-weight:bold;text-decoration:none;
-		  	&:hover,&:active {
-  				text-decoration:underline;
+	div.header-box {
+		width:80%;min-width:960px;height:40px;line-height:40px;margin:0 auto;padding:0;
+		h1.site-name {
+		  	display:block;float:left;height:40px;line-height:40px;margin:0 auto;padding:0;
+		  	color:white;
+		  	a {
+			  	color:#ffffff;font-size:30px;font-weight:bold;text-decoration:none;
+			  	&:hover,&:active {
+	  				text-decoration:underline;
+				}
+			}
+		}
+		ol.header-menu {
+			display:block;float:right;
+			list-style:none;
+			li {
+				display:block;float:left;
+				list-style:none;
+			  	a {
+				  	color:#ffffff;font-weight:bold;text-decoration:none;
+				  	&:hover,&:active {
+		  				text-decoration:underline;
+					}
+				}
 			}
 		}
 	}

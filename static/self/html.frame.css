@@ -11,23 +11,50 @@ header.header {
   border-bottom: 1px solid #608814;
   /*#86b52d;*/
 }
-header.header h1.site-name {
+header.header div.header-box {
   width: 80%;
   min-width: 960px;
   height: 40px;
   line-height: 40px;
   margin: 0 auto;
   padding: 0;
+}
+header.header div.header-box h1.site-name {
+  display: block;
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  padding: 0;
   color: white;
 }
-header.header h1.site-name a {
+header.header div.header-box h1.site-name a {
   color: #ffffff;
   font-size: 30px;
   font-weight: bold;
   text-decoration: none;
 }
-header.header h1.site-name a:hover,
-header.header h1.site-name a:active {
+header.header div.header-box h1.site-name a:hover,
+header.header div.header-box h1.site-name a:active {
+  text-decoration: underline;
+}
+header.header div.header-box ol.header-menu {
+  display: block;
+  float: right;
+  list-style: none;
+}
+header.header div.header-box ol.header-menu li {
+  display: block;
+  float: left;
+  list-style: none;
+}
+header.header div.header-box ol.header-menu li a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+header.header div.header-box ol.header-menu li a:hover,
+header.header div.header-box ol.header-menu li a:active {
   text-decoration: underline;
 }
 div.top-empty {
