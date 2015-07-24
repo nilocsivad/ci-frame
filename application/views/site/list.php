@@ -42,9 +42,10 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 		}
 	}
 </script>
+<?php $remove_all = ( isset( $remove_all ) && $remove_all == true ) ?>
 <?php $show_new = ( isset( $new_site ) && $new_site == true ) ?>
 <?php $show_remove = ( isset( $del_site ) && $del_site == true ) ?>
-<?php if ( $show_remove ) : ?>
+<?php if ( $remove_all || $show_remove ) : ?>
 <script type="text/javascript">
 	function remove(dom,rID,idx) {
 		var txt = $( "#row-dt-id-" + idx ).text();
@@ -132,7 +133,7 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 									<p class="item-line" title="<?php echo $item->title . " " . $item->dt_id?>">
 										<span><?php echo $item->title?></span>
 										<span>&nbsp;</span>
-										<?php if ( $show_remove ) : ?>
+										<?php if ( $remove_all || $show_remove ) : ?>
 										<a title="Remove this item" class="item-del" href="javascript:remove(this,<?php echo $item->random_id?>,<?php echo $index?>)">&times;</a>
 										<?php endif;?>
 										<span class="dt-span" id="<?php echo ( "row-dt-id-" . $index )?>"><?php echo $item->dt_id?>&nbsp;</span>

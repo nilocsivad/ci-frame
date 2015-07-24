@@ -18,25 +18,6 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 <!-- jquery -->
 <script src="<?php echo base_url() . "static/script/jquery/1.11.2/jquery.min.js" ?>"></script>
 <script type="text/javascript" src="<?php echo base_url() . "static/self/html.script.js" ?>"></script>
-
-<script type="text/javascript">
-	function jump2( go2 ) {
-		document.getElementById( "input-page" ).value = go2;
-		document.getElementById( "form-search" ).submit();
-	}
-	var vHide = true;
-	function toggle2(dom) {
-		if ( vHide ) {
-			vHide = false;
-			$(".holder-hide").show(500);
-			$("#toggle-s").text("↑");
-		} else {
-			vHide = true;
-			$(".holder-hide").hide(500);
-			$("#toggle-s").text("↓");
-		}
-	}
-</script>
 </head>
 <body>
 
@@ -53,22 +34,22 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 			<h1 class="title">New Web Site<a class="back-link" title="Back to web site list" href="<?php echo site_url( "site/index" )?>">&lt;&lt;&lt;</a></h1>
 			
 			<div id="body">
-				
-				<p class="<?php echo ( isset( $msg ) ? "error-line" : "" )?>"><?php echo ( isset( $msg ) ? $msg : "" )?></p>
+				<?php $msg = $this->session->flashdata( "msg" ) ?>
+				<p class="<?php echo ( !empty( $msg ) ? "error-line" : "" )?>"><?php echo ( !empty( $msg ) ? $msg : "" )?></p>
 			
 				<form id="form-search" method="post" action="<?php echo site_url( "site/create" ) ?>">
 					<table>
 						<tr>
 							<td align="right"><label for="input-title">Title:&nbsp;</label></td>
-							<td><input class="search-input" id="input-title" type="text" name="title" value="<?php echo ( isset( $title ) ? $title : "" )?>" /></td>
+							<td><input class="search-input" id="input-title" type="text" name="title" placeholder="Title" value="<?php echo ( isset( $title ) ? $title : "" )?>" /></td>
 						</tr>
 						<tr>
 							<td align="right"><label for="input-url">URL:&nbsp;</label></td>
-							<td><input class="search-input" id="input-url" type="text" name="url" value="<?php echo ( isset( $url ) ? $url : "" )?>" /></td>
+							<td><input class="search-input" id="input-url" type="text" name="url" placeholder="URL" value="<?php echo ( isset( $url ) ? $url : "" )?>" /></td>
 						</tr>
 						<tr>
 							<td align="right"><label for="input-comment">Comment:&nbsp;</label></td>
-							<td><textarea cols="48" rows="4" class="search-txtarea" id="input-comment" name="comment"><?php echo ( isset( $comment ) ? $comment : "" )?></textarea></td>
+							<td><textarea cols="48" rows="4" class="search-txtarea" id="input-comment" name="comment" placeholder="Comment"><?php echo ( isset( $comment ) ? $comment : "" )?></textarea></td>
 						</tr>
 						<tr>
 							<td colspan="2" align="right">
