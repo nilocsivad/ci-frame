@@ -63,7 +63,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:dbname=db_ci_frame;host=127.0.0.1',
+	'dsn'	=> 'mysql:dbname=db_ci_frame;host=127.0.0.1;port=3306',
 	'hostname' => '',
 	'username' => 'ci_user',
 	'password' => 'ci_user_pwd',
