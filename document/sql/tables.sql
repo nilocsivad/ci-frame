@@ -64,7 +64,8 @@ create table tbl_user
    lname                varchar(64) not null comment 'Login name',
    lpwd                 varchar(32) not null comment 'Password for account',
    status               int not null default 100 comment '100:Normal 101:Inactive 102:Locked',
-   type                 int not null default 100 comment '100:Normal 999:Manager',
+   type                 int not null default 100 comment '100:Normal 900:General Manager 999:Highest Manager',
+   time                 datetime,
    primary key (lname)
 );
 
