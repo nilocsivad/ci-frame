@@ -30,20 +30,38 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 
 	<header class="header">
 		<div class="header-box">
-			<h1 class="site-name"><a href="<?php echo base_url() ?>">I Am VIP</a></h1>
+			<h1 class="site-name">
+				<a href="<?php echo base_url() ?>">I Am VIP</a>
+			</h1>
 		</div>
 	</header>
-	
+
 	<div class="top-empty">&nbsp;</div>
-	
+
 	<div id="wrapper">
 		<p class="empty">&nbsp;</p>
-		
-		<div class="container box-shadow">
-			<h1 class="title">Double Color Ball<a class="back-link" title="Back to home" href="<?php echo base_url()?>">&lt;home</a></h1>
-			
+
+		<div class="full-w" style="height:240px;background-image:url('<?php echo base_url() . "static/images/page/bicolor.jpg" ?>');">
+			<div class="container">
+				<h1 class="title">Bicolor Balls</h1>
+
+				<p class="bic-ball">
+					<span class="bic-date"><?php echo $ball->dcb_dt ?></span> <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> <span class="bic-no"><?php echo $ball->dcb_num ?></span>
+				</p>
+				<p class="bic-ball">
+					<span class="bic-item"><?php echo $ball->rb1 ?></span> <span class="bic-item"><?php echo $ball->rb2 ?></span> <span class="bic-item"><?php echo $ball->rb3 ?></span> <span class="bic-item"><?php echo $ball->rb4 ?></span> <span class="bic-item"><?php echo $ball->rb5 ?></span> <span class="bic-item"><?php echo $ball->rb6 ?></span> <span class="bic-item bic-red"><?php echo $ball->blueb ?></span>
+				</p>
+
+			</div>
+		</div>
+
+		<p class="empty">&nbsp;</p>
+
+		<div class="container">
+
 			<div id="body">
-			
+				<p class="empty">&nbsp;</p>
+
 				<div class="hide-dom">
 					<?php 
 						$url = 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"]; 
@@ -52,42 +70,36 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 					<div><?php echo dirname( $url ); ?></div>
 					<div><?php print_r( pathinfo( $url ) ) ?></div>
 					<div><?php print_r( parse_url( $url ) ) ?></div>
-					
+
 					<div>&nbsp;</div>
-					
+
 					<div><?php echo current_url()?></div>
 					<div><?php echo site_url()?></div>
 					<div><?php echo site_url( "/" )?></div>
-					<div><?php echo site_url( "Doublecolorball" ) ?></div>
+					<div><?php echo site_url( "bicolorball" ) ?></div>
 				</div>
-			
-				<div><a class="link-btn" href="<?php echo site_url( "doublecolorball/increments" ) ?>">Refresh</a></div>
-				<div>&nbsp;</div>
-			
-				<form id="form-search" method="get" action="<?php echo site_url( "doublecolorball/index" ) ?>">
-					<span>Page&nbsp;</span><input id="input-page" name="page" type="text" value="<?php echo $page?>" />
-					<span> and </span>
-					<input id="input-size" name="size" type="text" value="<?php echo $size?>" /><span>&nbsp;rows.&nbsp;&nbsp;</span>
-					<input class="search-btn" type="submit" value="Go" />
+
+				<form id="form-search" method="get" action="<?php echo site_url( "bicolorball/index" ) ?>">
+					<p>
+						<a class="link-btn" href="<?php echo site_url( "bicolorball/increments" ) ?>">Refresh</a> <span>&nbsp;&nbsp;&nbsp;&nbsp;</span> <input id="input-allrb" name="allrb" type="text" value="<?php echo $allrb?>" placeholder="Type red ball's number" /> <input class="search-btn" type="submit" value="Search" />
+					</p>
+					<p>&nbsp;</p>
+					<p>
+						<span>Page&nbsp;</span><input id="input-page" name="page" type="text" value="<?php echo $page?>" /> <span> and </span> <input id="input-size" name="size" type="text" value="<?php echo $size?>" /><span>&nbsp;rows.&nbsp;&nbsp;</span> <input class="search-btn" type="submit" value="Go" />
+					</p>
 				</form>
-				
+
 				<div class="hide-dom">
 					<div>File:<?php echo __FILE__?></div>
 					<div>Line:<?php echo __LINE__?></div>
 					<div>Class:<?php echo __CLASS__?> -- <?php echo $class?></div>
 					<div>Method:<?php echo __METHOD__?> -- <?php echo $method?></div>
 				</div>
-			
+
 				<table>
 					<thead>
 						<tr>
-							<td colspan="11">
-								<a class="link-btn" href="javascript:jump2(1)">First</a>
-								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
-								<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
-								<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
-							</td>
+							<td colspan="11"><a class="link-btn" href="javascript:jump2(1)">First</a> <a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a> <span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span> <a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a> <a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a></td>
 						</tr>
 						<tr class="row-title">
 							<th width="90">Date</th>
@@ -122,27 +134,23 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan="11">
-								<a class="link-btn" href="javascript:jump2(1)">First</a>
-								<a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a>
-								<span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span>
-								<a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a>
-								<a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a>
-							</td>
+							<td colspan="11"><a class="link-btn" href="javascript:jump2(1)">First</a> <a class="link-btn" href="javascript:jump2(<?php echo $page - 1?>)">Previous</a> <span>Current is <b><?php echo $page?>/<?php echo $sum?>.</b></span> <a class="link-btn" href="javascript:jump2(<?php echo $page + 1?>)">Next</a> <a class="link-btn" href="javascript:jump2(<?php echo $sum?>)">Last</a></td>
 						</tr>
 					</tfoot>
 				</table>
-				
+
 				<p class="time-line"><?php echo date("l Y-m-d H:i:s")?>
 			
+			
+			
 			</div>
-		
+
 		</div>
-		
+
 		<p class="empty">&nbsp;</p>
-		
+
 	</div>
-	
+
 	<footer class="footer">
 		<p class="declare">
 			当前站点所有内容均为个人学习行为,如有侵权,请及时联系 <a href="mailto:nilocsivad@163.com">nilocsivad@163.com</a> 更改, 谢谢!
@@ -151,4 +159,3 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 
 </body>
 </html>
-			

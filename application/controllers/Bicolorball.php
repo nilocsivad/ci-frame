@@ -1,18 +1,20 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class Doublecolorball extends MY_Controller {
+class Bicolorball extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
-		$this->load->model( "Doublecolorball_dal" );
+		$this->load->model( "Dal_bicolorball" );
 	}
 	
 	public function index() {
 		$page = isset( $_GET[ "page" ] ) ? $_GET[ "page" ] : 1;
 		$size = isset( $_GET[ "size" ] ) ? $_GET[ "size" ] : 30;
-		$data = $this->Doublecolorball_dal->list_split( $_GET, $page, $size );
+		$data = $this->Dal_bicolorball->list_split( $_GET, $page, $size );
 		$data[ "class" ] = __CLASS__;
 		$data[ "method" ] = __METHOD__;
+		$rowData = $this->Dal_bicolorball->lastest();
+		$data[ "ball" ] = $rowData;
 		$this->load->view ( 'dcb/list', $data );
 	}
 	
@@ -37,13 +39,13 @@ class Doublecolorball extends MY_Controller {
 			$row_data = self::ResolveCurPage( $trs, $xpath );
 			
 			foreach ( $row_data as $arr ) {
-				$c = $this->Doublecolorball_dal->count( array( "dcb_dt" => $arr[ "dcb_dt" ] ) );
+				$c = $this->Dal_bicolorball->count( array( "dcb_dt" => $arr[ "dcb_dt" ] ) );
 				if ( $c > 0 ) {
 					$loop = false;
 					break;
 				} else {
 					$loop = true;
-					$this->Doublecolorball_dal->insert( $arr );
+					$this->Dal_bicolorball->insert( $arr );
 				}
 			}
 			
@@ -61,7 +63,7 @@ class Doublecolorball extends MY_Controller {
 			}
 		} while ( $loop );
 		
-		redirect( site_url( "doublecolorball" ) );
+		redirect( site_url( "bicolorball" ) );
 	}
 	
 	private function ResolveURL( $i ) {

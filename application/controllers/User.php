@@ -4,13 +4,13 @@ class User extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
-		$this->load->model( "User_dal" );
+		$this->load->model( "Dal_user" );
 	}
 	
 	public function index() {
 		$page = isset( $_GET[ "page" ] ) ? $_GET[ "page" ] : 1;
 		$size = isset( $_GET[ "size" ] ) ? $_GET[ "size" ] : 30;
-		$data = $this->User_dal->list_split( $_GET, $page, $size );
+		$data = $this->Dal_user->list_split( $_GET, $page, $size );
 			
 		if ( $this->is_login() ) {
 			$online = $this->online();
@@ -75,7 +75,7 @@ class User extends MY_Controller {
 			$lname = $this->randomstring->Generate() . "-" . rand();
 			$datas[ $i ] = array( "lname" => $lname, "lpwd" => md5( $lname ), "status" => 0 );
 		}
-		$this->User_dal->new_users( $datas );
+		$this->Dal_user->new_users( $datas );
 	}
 	
 	public function enter() {
@@ -102,7 +102,7 @@ class User extends MY_Controller {
 				$this->load->library( "Self_md5" );
 				$data[ "lpwd" ] = $this->self_md5->general( $lpwd );
 				
-				$online = $this->User_dal->login( $data );
+				$online = $this->Dal_user->login( $data );
 				if ( $online == null) {
 					$this->session->set_flashdata( "msg", "Login name or Password is wrong!" );
 					$data[ "lpwd" ] = $lpwd;
@@ -158,7 +158,7 @@ class User extends MY_Controller {
 					$data[ "status" ] = 100;
 					$data[ "type" ] = 100;
 					
-					$this->User_dal->new_user( $data );
+					$this->Dal_user->new_user( $data );
 					redirect( site_url( "user" ) );
 				}
 			} else {

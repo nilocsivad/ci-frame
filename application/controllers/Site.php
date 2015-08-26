@@ -4,13 +4,13 @@ class Site extends MY_Controller {
 	
 	function __construct() {
 		parent::__construct();
-		$this->load->model( "Site_dal" );
+		$this->load->model( "Dal_site" );
 	}
 	
 	public function index() {
 		$page = isset( $_GET[ "page" ] ) ? $_GET[ "page" ] : 1;
 		$size = isset( $_GET[ "size" ] ) ? $_GET[ "size" ] : 30;
-		$data = $this->Site_dal->list_split( $_GET, $page, $size );
+		$data = $this->Dal_site->list_split( $_GET, $page, $size );
 			
 		if ( $this->is_login() ) {
 			$online = $this->online();
@@ -51,7 +51,7 @@ class Site extends MY_Controller {
 				} else {
 					$data[ "dt_id" ] = date( "Y-m-d H:i:s" );
 					$data[ "random_id" ] = rand( 100, 999 );
-					$this->Site_dal->new_site( $data );
+					$this->Dal_site->new_site( $data );
 					redirect( site_url( "site" ) );
 				}
 			} else {
@@ -76,7 +76,7 @@ class Site extends MY_Controller {
 				if ( $random_id == "" || $dt_id == "" ) {
 					return "Parameters must be not null!";
 				} else {
-					$this->Site_dal->del_site( $data );
+					$this->Dal_site->del_site( $data );
 					return 1;
 				}
 			} else {

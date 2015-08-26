@@ -1,8 +1,8 @@
 <?php
 defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
-class User_dal extends CI_Model {
+class Dal_site extends CI_Model {
 	
-	const TABLE_NAME = "tbl_user";
+	const TABLE_NAME = "tbl_site";
 	
 	function __construct() {
 		parent::__construct();
@@ -22,7 +22,7 @@ class User_dal extends CI_Model {
 		{
 			$q = self::pack_q( $param, $data );
 		
-			$data[ "list" ] = $q->limit( $size, $offset )->get()->result();
+			$data[ "list" ] = $q->order_by( "dt_id", "DESC" )->limit( $size, $offset )->get()->result();
 			$data[ "length" ] = $length;
 			$data[ "sum" ] = $sum;
 			$data[ "offset" ] = $offset;
@@ -35,27 +35,27 @@ class User_dal extends CI_Model {
 	private function pack_q( $param, &$data ) {
 		$q = $this->db->from( self::TABLE_NAME );
 		{
-			$lname = isset( $param[ "lname" ] ) ? $param[ "lname" ] : "";
-			if ( $lname == null || $lname == "" ) {} else { $q->like( "lname", $lname, 'before/after/both' ); }
-			$data[ "lname" ] = $lname;
+			$title = isset( $param[ "title" ] ) ? $param[ "title" ] : "";
+			if ( $title == null || $title == "" ) {} else { $q->like( "title", $title, 'before/after/both' ); }
+			$data[ "title" ] = $title;
 		
-			$status = isset( $param[ "status" ] ) ? $param[ "status" ] : "";
-			if ( $status == null || $status == "" ) {} else { $q->where( "status", $status ); }
-			$data[ "status" ] = $status;
+			$url = isset( $param[ "url" ] ) ? $param[ "url" ] : "";
+			if ( $url == null || $url == "" ) {} else { $q->like( "url", $url, 'before/after/both' ); }
+			$data[ "url" ] = $url;
+		
+			$comment = isset( $param[ "comment" ] ) ? $param[ "comment" ] : "";
+			if ( $comment == null || $comment == "" ) {} else { $q->like( "comment", $comment, 'before/after/both' ); }
+			$data[ "comment" ] = $comment;
 		}
 		return $q;
 	}
 	
-	function new_users($datas) {
-		$this->db->insert_batch( self::TABLE_NAME, $datas );
-	}
-	
-	function new_user( $data ) {
+	function new_site( $data ) {
 		$this->db->insert( self::TABLE_NAME, $data );
 	}
 	
-	function login( $data ) {
-		return $this->db->from( self::TABLE_NAME )->where( $data )->get()->row();
+	function del_site( $data ) {
+		$this->db->where( $data )->delete( self::TABLE_NAME );
 	}
 	
 }

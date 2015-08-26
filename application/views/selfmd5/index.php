@@ -30,17 +30,25 @@ defined ( 'BASEPATH' ) or exit ( 'No direct script access allowed' );
 	<div class="top-empty">&nbsp;</div>
 	
 	<div id="wrapper">
+
+		<p class="empty">&nbsp;</p>
+	
+		<div class="full-w" style="height:240px;background-image:url('<?php echo base_url() . "static/images/page/md5.jpg" ?>');">
+			<div class="container">
+				<h1 class="title">Encrypt by MD5</h1>
+			</div>
+		</div>
+
 		<p class="empty">&nbsp;</p>
 		
-		<div class="container box-shadow">
-			<h1 class="title">Self MD5</h1>
+		<div class="container">
 			
 			<div id="body">
 			
 				<form id="form-search" method="get" action="<?php echo site_url( "selfmd5/index" ) ?>">
 					<p>
 						<label for="input-txt">Text:</label>
-						<input id="input-txt" class="search-input" name="txt" value="<?php echo $txt ?>" />
+						<input id="input-txt" class="search-input" name="txt" placeholder="Type some text" value="<?php echo $txt ?>" />
 						<input class="search-btn" type="submit" value="Calc" />
 					</p>
 					<p>&nbsp;</p>

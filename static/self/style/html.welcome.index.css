@@ -1,7 +1,3 @@
-.box-shadow {
-  border: 1px solid #d0d0d0;
-  box-shadow: 0 0 8px #d0d0d0;
-}
 .link-btn {
   line-height: 120%;
   padding: 4px 10px;
@@ -14,78 +10,60 @@
   line-height: 150%;
   padding: 4px 0;
 }
-#img-introduce {
+.n-box {
   display: block;
-  width: 100%;
-  height: 480px;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
-#img-introduce .full-box {
-  display: block;
-  width: 99999px;
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.full-w {
+  background-position: center;
 }
-#img-introduce .full-box #scroll-dom {
-  display: block;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  left: 0px;
-  list-style: none;
+.time-line {
+  height: 20px;
+  line-height: 20px;
+  padding: 4px 0;
+  color: #4d4d4d;
 }
-#img-introduce .full-box #scroll-dom li {
-  display: block;
-  float: left;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0px;
+.bic-ball,
+.md5-line {
+  height: 200%;
+  line-height: 200%;
+  padding: 8px 0;
+  color: #ffffff;
 }
-#img-introduce .full-box #scroll-dom li a {
-  display: block;
-  width: 100%;
-  height: 100%;
+.bic-ball .bic-date,
+.md5-line .bic-date,
+.bic-ball .bic-no,
+.md5-line .bic-no {
+  font-size: 20px;
 }
-#img-introduce a.cur-intro {
-  display: block;
-  float: left;
-  width: 50px;
-  height: 50px;
-  margin: 0;
-  padding: 8px;
-  _padding: 4px;
-  position: absolute;
-  z-index: 99;
-  top: 260px;
-  background: #333333;
-  border-radius: 32px;
-  cursor: pointer;
+.bic-ball .bic-link,
+.md5-line .bic-link,
+.bic-ball .md5-link,
+.md5-line .md5-link {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
 }
-#img-introduce a.cur-intro img {
-  margin: 0;
-  padding: 0;
+.bic-ball .bic-link:hover,
+.md5-line .bic-link:hover,
+.bic-ball .md5-link:hover,
+.md5-line .md5-link:hover,
+.bic-ball .bic-link:active,
+.md5-line .bic-link:active,
+.bic-ball .md5-link:active,
+.md5-line .md5-link:active {
+  text-decoration: underline;
+  color: #cecece;
 }
-#img-introduce a.cur-intro img.i-l {
-  margin-left: 12px;
-  _margin-left: 6px;
+.bic-ball .md5-link,
+.md5-line .md5-link {
+  margin-left: 10%;
 }
-#img-introduce a.cur-intro img.i-r {
-  margin-left: 18px;
-  _margin-left: 9px;
+.bic-ball .bic-item,
+.md5-line .bic-item {
+  font-size: 26px;
 }
-#img-introduce a.cur-intro.cur-l {
-  left: 20px;
-}
-#img-introduce a.cur-intro.cur-r {
-  right: 20px;
-}
-#img-introduce a.cur-intro:hover,
-#img-introduce a.cur-intro:active {
-  background: #111111;
+.bic-ball .bic-item.bic-red,
+.md5-line .bic-item.bic-red {
+  font-weight: bold;
+  color: #d90e0e;
 }

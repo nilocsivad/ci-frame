@@ -1,7 +1,4 @@
 
-.box-shadow { 
-	border:1px solid #d0d0d0;box-shadow:0 0 8px #d0d0d0; 
-}
 .link-btn {
 	line-height:120%;padding:4px 10px;overflow:hidden;
 	border: 1px solid #d0d0d0;box-shadow: 0 0 8px #d0d0d0;
@@ -9,37 +6,39 @@
 .line {
 	height:150%;line-height:150%;padding:4px 0;
 }
-
-#img-introduce {
-	display:block;width:100%;height:480px;margin:0;padding:0;overflow-x:hidden;
-	.full-box {
-		display:block;width:99999px;height:100%;margin:0;padding:0;
-		#scroll-dom {
-			display:block;width:100%;height:100%;margin:0;padding:0;
-			position:relative;left:0px;
-			list-style:none;
-			li {
-				display:block;float:left;width:100%;height:100%;margin:0;padding:0px;
-				a {
-					display:block;width:100%;height:100%;
-				}
-			}
+.n-box {
+	display:block;
+}
+.full-w {
+	background-position:center;
+}
+.time-line {
+	height:20px;line-height:20px;padding:4px 0;
+	color:#4d4d4d;
+}
+.bic-ball, .md5-line {
+	height:200%;line-height:200%;padding:8px 0;
+	color:#ffffff;
+	.bic-date, .bic-no {
+		font-size:20px;
+	}
+	.bic-link, .md5-link {
+		color:#ffffff;
+		font-size:20px;
+		text-decoration:none;
+		&:hover,&:active {
+			text-decoration:underline;
+			color:#cecece;
 		}
 	}
-	a.cur-intro {
-		display:block;float:left;width:50px;height:50px;margin:0;padding:8px;_padding:4px;
-		position:absolute;z-index:99;top:260px;
-		background:#333333;border-radius:32px;
-		cursor:pointer;
-		img {
-			margin:0;padding:0;
-			&.i-l { margin-left:12px;_margin-left:6px; }
-			&.i-r { margin-left:18px;_margin-left:9px; }
-		}
-		&.cur-l { left:20px; }
-		&.cur-r { right:20px; }
-		&:hover, &:active {
-			background:#111111;
+	.md5-link {
+		margin-left:10%;
+	}
+	.bic-item {
+		font-size:26px;
+		&.bic-red {
+			font-weight:bold;
+			color:#d90e0e;
 		}
 	}
 }

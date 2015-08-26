@@ -1,14 +1,10 @@
 h1.title {
-  margin: 0 0 14px 0;
-  padding: 14px 15px 10px 0;
-  border-bottom: 1px solid #D0D0D0;
-  color: #444;
+  margin: 20px 0 0 0;
+  padding: 10px 15px 10px 0;
+  /*border-bottom:1px solid #D0D0D0;*/
+  color: #ffffff;
   font-size: 19px;
   font-weight: bold;
-}
-h1.title a.back-link {
-  display: block;
-  float: right;
 }
 tr {
   height: 42px;
@@ -82,6 +78,13 @@ p.time-line {
   outline: none;
   text-align: center;
 }
+#input-allrb {
+  width: 240px;
+  height: 22px;
+  line-height: 22px;
+  border: 1px solid #ccc;
+  outline: none;
+}
 .search-btn {
   height: 24px;
   line-height: 24px;
@@ -93,4 +96,31 @@ p.time-line {
 }
 .search-btn:hover {
   border: 1px solid #3333aa;
+}
+.bic-ball {
+  height: 200%;
+  line-height: 200%;
+  padding: 8px 0;
+  color: #ffffff;
+}
+.bic-ball .bic-date,
+.bic-ball .bic-no {
+  font-size: 20px;
+}
+.bic-ball .bic-link {
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+}
+.bic-ball .bic-link:hover,
+.bic-ball .bic-link:active {
+  text-decoration: underline;
+  color: #cecece;
+}
+.bic-ball .bic-item {
+  font-size: 26px;
+}
+.bic-ball .bic-item.bic-red {
+  font-weight: bold;
+  color: #d90e0e;
 }

@@ -1607,8 +1607,8 @@ DESTINATION 0 新宋体,8,N</a:FontList>
 <o:ReferenceSymbol Id="o9">
 <a:CreationDate>1437530242</a:CreationDate>
 <a:ModificationDate>1437700894</a:ModificationDate>
-<a:Rect>((-12620,12954), (-12165,23302))</a:Rect>
-<a:ListOfPoints>((-12367,23302),(-12419,12954))</a:ListOfPoints>
+<a:Rect>((-12631,12954), (-12181,23302))</a:Rect>
+<a:ListOfPoints>((-12406,23302),(-12406,12954))</a:ListOfPoints>
 <a:CornerStyle>1</a:CornerStyle>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>12615680</a:LineColor>
